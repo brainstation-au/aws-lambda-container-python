@@ -37,7 +37,7 @@ jobs:
       - name: Check linting
         run: |
           source .venv/bin/activate
-          find src -type f -name \"*.py\" | xargs pylint
+          pylint src
 
       - name: Run unit tests
         run: |
