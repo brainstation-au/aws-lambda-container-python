@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  bash: &base
+    build:
+      context: .
+      target: local
+    volumes:
+      - .:/opt/code
+    working_dir: /opt/code
+    command: bash
+
+  venv:
+    <<: *base
+    command: bash -c "rm -rf ./.venv && python -m venv ./.venv && poetry install --no-root"
+
+  install:
+    <<: *base
+    command: poetry install --no-root
+
+  test:
+    <<: *base
+    command: poetry run pytest
+
+  lint:
+    <<: *base
+    command: bash -c "find src -type f -name \"*.py\" | xargs pylint"

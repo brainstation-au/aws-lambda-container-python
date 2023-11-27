@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "aws-lambda-container-python"
+version = "0.1.0"
+description = "Example of AWS Lambda with Container Image written in Python"
+authors = ["Khalid Saifullah <khalid@outlook.com.au>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+pytest-cov = "^4.1.0"
+pylint = "^3.0.2"
+pytest-picked = "^0.5.0"
+pytest-sugar = "^0.9.7"
+pytest-xdist = "^3.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
